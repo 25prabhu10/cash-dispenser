@@ -1,0 +1,128 @@
+:root {
+  --wheat: wheat;
+  --grey: #f7f7f7;
+  --lgt-grey: lightgray;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Verdana", "Geneva",
+    "Tahoma", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  background-color: var(--grey);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+table,
+tr,
+th,
+td {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.3em;
+  border: 0.01em solid black;
+  border-collapse: collapse;
+  line-height: 2;
+}
+
+thead,
+tfoot {
+  background-color: var(--lgt-grey);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.bg-wheat {
+  background-color: var(--wheat);
+}
+
+.border-black {
+  border: 0.15em solid black;
+}
+
+.border-black-lgt {
+  border: 0.1em solid rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 1.5em;
+}
+
+.heading-sec {
+  margin: 0;
+}
+
+.section {
+  padding-bottom: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    margin: 0 1em;
+    padding: 1em 2em;
+  }
+
+  .container {
+    margin: 1.5em auto;
+  }
+}
+
+.art {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.input-box {
+  margin-top: 1em;
+}
+
+.input {
+  padding: 0.75em 1em;
+  width: 20ch;
+}
+
+.btn {
+  margin: 1em 0;
+  padding: 0.75em 2em;
+  cursor: pointer;
+}
+
+.ledger-box {
+  width: 100%;
+}
+
+.sty-count {
+  width: 25%;
+}
+
+.sty-count2 {
+  width: 40%;
+  border-right: none;
+  text-align: right;
+}
+
+.sty-count3 {
+  border-left: none;
+  text-align: left;
+}

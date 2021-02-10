@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="ATM dispenser calculates the denomination count."
+    />
+    <title>ATM Dispenser</title>
+    <link rel="stylesheet" href="./css/vendors/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="container border-black">
+      <header class="header">
+        <h1>ATM Cash Dispenser</h1>
+      </header>
+      <section class="section">
+        <article class="art">
+          <h2 class="heading-sec" aria-hidden="true">Enter Amount</h2>
+          <div class="input-box">
+            <label class="sr-only" for="amount">Enter Amount</label>
+            <input
+              type="number"
+              name="amount"
+              id="amount"
+              class="input"
+              placeholder="0"
+              autofocus
+            />
+            <button id="dispatch-btn" class="btn">Dispatch</button>
+          </div>
+        </article>
+        <article class="art">
+          <h2 id="note-count">Note Count</h2>
+          <div class="ledger-box" id="ledger">
+            <table>
+              <thead>
+                <tr>
+                  <th class="sty-count">Count</th>
+                  <th colspan="2">Denomination</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="sty-count" id="thousand">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">1000</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="five-hundred">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">500</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="two-hundred">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">200</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="one-hundred">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">100</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="fifty">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">50</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="twenty">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">20</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="ten">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">10</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="five">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">5</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="two">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">2</td>
+                </tr>
+                <tr>
+                  <td class="sty-count" id="one">0</td>
+                  <td class="sty-count2">Notes of</td>
+                  <td class="sty-count3">1</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="sty-count" id="total">0</td>
+                  <td colspan="2">Number Notes Dispatched</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
