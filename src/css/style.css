@@ -59,6 +59,16 @@ tfoot {
   border: 0.1em solid rgba(0, 0, 0, 0.5);
 }
 
+.hide {
+  display: none;
+}
+
+.danger {
+  display: block;
+  margin-top: 1em;
+  color: red;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -67,7 +77,7 @@ tfoot {
 }
 
 .heading-sec {
-  margin: 0;
+  font-size: 1.25em;
 }
 
 .section {
@@ -91,10 +101,6 @@ tfoot {
   justify-content: center;
   align-items: center;
   margin: 1em 0;
-}
-
-.input-box {
-  margin-top: 1em;
 }
 
 .input {
