@@ -13,10 +13,10 @@ window.addEventListener('load', () => {
     let dispatch = parseInt(inputAmount.value, 10);
 
     // IF VALUE IS 0 OR EMPTY THEN DON't PROCEED
-    errMsg.classList.remove('hide');
+    errMsg.classList.remove('v-hidden');
     errMsg.classList.add('danger');
     if (isNaN(dispatch)) {
-      errMsg.textContent = 'Please only numbers';
+      errMsg.textContent = 'Please enter an amount';
       return;
     } else if (dispatch <= 0 || dispatch > 999999999999999999) {
       errMsg.textContent =
@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
       return;
     } else {
       errMsg.classList.remove('danger');
-      errMsg.classList.add('hide');
+      errMsg.classList.add('v-hidden');
     }
 
     const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
