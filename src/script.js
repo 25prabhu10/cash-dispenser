@@ -1,3 +1,8 @@
+const currencyFormatter = new Intl.NumberFormat('en-IN', {
+  style: 'currency',
+  currency: 'INR',
+});
+
 window.addEventListener('load', () => {
   const dispatchBtn = document.getElementById('dispatch-btn');
   const inputAmount = document.getElementById('amount');
@@ -15,7 +20,7 @@ window.addEventListener('load', () => {
       return;
     } else if (dispatch <= 0 || dispatch > 999999999999999999) {
       errMsg.textContent =
-        'Please enter amount between ₹1 to ₹999999999999999999';
+        'Please enter amount between 1 to 999999999999999999';
       return;
     } else {
       errMsg.classList.remove('danger');
@@ -38,7 +43,9 @@ window.addEventListener('load', () => {
 
     let total = 0;
 
-    noteCount.textContent = `Note Count for Amount ₹${dispatch}`;
+    noteCount.textContent = `Note Count for Amount ${currencyFormatter.format(
+      dispatch
+    )}`;
 
     for (let counter = 0; counter < names.length; counter++) {
       let count = 0;
