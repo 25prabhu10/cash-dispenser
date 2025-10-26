@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,99 +13,100 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <main class="container border-black">
+    <main class="container">
       <header class="header">
         <h1>ATM Cash Dispenser</h1>
       </header>
       <section class="section">
-        <article class="art">
-          <h2 class="heading-sec" aria-hidden="true">Enter Amount</h2>
-          <div class="input-box">
-            <label class="sr-only" for="amount">Enter Amount</label>
-            <input
-              type="number"
-              name="amount"
-              id="amount"
-              class="input"
-              placeholder="0"
-              min="1"
-              max="18"
-              autofocus
-            />
+        <article>
+          <form id="atm-form" class="form">
+            <div class="form-group">
+              <label for="amount" class="label">Enter Amount:</label>
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                class="input"
+                placeholder="0"
+                min="1"
+                max="999999999999999999"
+                autofocus
+              />
+            </div>
             <button id="dispatch-btn" class="btn">Dispatch</button>
-            <span id="err-msg" class="v-hidden">Please enter an amount</span>
-          </div>
+          </form>
         </article>
-        <article class="art">
-          <h2 class="heading-sec" id="note-count">Note Count</h2>
-          <div class="ledger-box" id="ledger">
-            <table>
-              <thead>
-                <tr>
-                  <th class="sty-count">Count</th>
-                  <th colspan="2">Denomination</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="sty-count" id="thousand">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">1000</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="five-hundred">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">500</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="two-hundred">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">200</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="one-hundred">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">100</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="fifty">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">50</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="twenty">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">20</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="ten">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">10</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="five">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">5</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="two">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">2</td>
-                </tr>
-                <tr>
-                  <td class="sty-count" id="one">0</td>
-                  <td class="sty-count2">x</td>
-                  <td class="sty-count3">1</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td class="sty-count" id="total">0</td>
-                  <td colspan="2">Notes Dispensed</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+        <article class="ledger-box" id="ledger-box">
+          <table>
+            <caption>
+              Denomination Count
+              <span id="dispensed-amount"></span>
+            </caption>
+            <thead>
+              <tr>
+                <th class="sty-count">Count</th>
+                <th colspan="2">Denomination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="sty-count" id="thousand">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">1000</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="five-hundred">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">500</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="two-hundred">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">200</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="one-hundred">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">100</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="fifty">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">50</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="twenty">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">20</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="ten">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">10</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="five">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">5</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="two">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">2</td>
+              </tr>
+              <tr>
+                <td class="sty-count" id="one">0</td>
+                <td class="sty-count2">x</td>
+                <td class="sty-count3">1</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="sty-count" id="total">0</td>
+                <td colspan="2">Notes Dispensed</td>
+              </tr>
+            </tfoot>
+          </table>
         </article>
       </section>
     </main>

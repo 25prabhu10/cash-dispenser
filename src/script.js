@@ -1,76 +1,77 @@
-const currencyFormatter = new Intl.NumberFormat('en-IN', {
-  style: 'currency',
-  currency: 'INR',
+const currencyFormatter = new Intl.NumberFormat("en-IN", {
+  style: "currency",
+  currency: "INR",
 });
 
-window.addEventListener('load', () => {
-  const dispatchBtn = document.getElementById('dispatch-btn');
-  const inputAmount = document.getElementById('amount');
-  const noteCount = document.getElementById('note-count');
-  const errMsg = document.getElementById('err-msg');
+const updateCount = (e) => {
+  const form = document.getElementById("atm-form");
+  const inputAmount = document.getElementById("amount");
+  const noteCount = document.getElementById("dispensed-amount");
 
-  const updateCount = () => {
-    let dispatch = parseInt(inputAmount.value, 10);
+  let dispatch = parseInt(inputAmount.value, 10);
 
-    // IF VALUE IS 0 OR EMPTY THEN DON't PROCEED
-    errMsg.classList.remove('v-hidden');
-    errMsg.classList.add('danger');
-    if (isNaN(dispatch)) {
-      errMsg.textContent = 'Please enter an amount';
-      return;
-    } else if (dispatch <= 0 || dispatch > 999999999999999999) {
-      errMsg.textContent =
-        'Please enter amount between 1 to 999999999999999999';
-      return;
-    } else {
-      errMsg.classList.remove('danger');
-      errMsg.classList.add('v-hidden');
+  // IF VALUE IS 0 OR EMPTY THEN DON'T PROCEED
+  if (isNaN(dispatch) || dispatch <= 0 || dispatch > 999999999999999999) {
+    return;
+  }
+
+  const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+  const names = [
+    "thousand",
+    "five-hundred",
+    "two-hundred",
+    "one-hundred",
+    "fifty",
+    "twenty",
+    "ten",
+    "five",
+    "two",
+    "one",
+  ];
+
+  let total = 0;
+
+  noteCount.textContent = `Note Count for Amount ${currencyFormatter.format(
+    dispatch,
+  )}`;
+
+  for (let counter = 0; counter < names.length; counter++) {
+    let count = 0;
+    const element = document.getElementById(names[counter]);
+
+    element.parentElement.classList.remove("bg-wheat");
+
+    count = Math.floor(dispatch / denominations[counter]);
+    element.textContent = count;
+
+    if (count !== 0) {
+      element.parentElement.classList.add("bg-wheat");
     }
 
-    const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
-    const names = [
-      'thousand',
-      'five-hundred',
-      'two-hundred',
-      'one-hundred',
-      'fifty',
-      'twenty',
-      'ten',
-      'five',
-      'two',
-      'one',
-    ];
+    dispatch = dispatch % denominations[counter];
+    total = total + count;
+  }
 
-    let total = 0;
+  document.getElementById("total").textContent = total;
+  noteCount.scrollIntoView();
+};
 
-    noteCount.textContent = `Note Count for Amount ${currencyFormatter.format(
-      dispatch
-    )}`;
+window.addEventListener("load", () => {
+  const form = document.getElementById("atm-form");
+  const inputAmount = document.getElementById("amount");
 
-    for (let counter = 0; counter < names.length; counter++) {
-      let count = 0;
-      const element = document.getElementById(names[counter]);
+  const urlParams = new URLSearchParams(window.location.search);
+  const amountParam = urlParams.get("amount");
 
-      element.parentElement.classList.remove('bg-wheat');
-
-      count = Math.floor(dispatch / denominations[counter]);
-      element.textContent = count;
-
-      if (count !== 0) {
-        element.parentElement.classList.add('bg-wheat');
-      }
-
-      dispatch = dispatch % denominations[counter];
-      total = total + count;
+  if (amountParam) {
+    if (isNaN(parseInt(amountParam, 10))) {
+      return;
     }
 
-    document.getElementById('total').textContent = total;
-    noteCount.scrollIntoView();
-    inputAmount.value = '';
-  };
+    inputAmount.value = amountParam;
+    updateCount();
+  }
 
-  dispatchBtn.addEventListener('click', updateCount);
-  window.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') updateCount();
-  });
+  // submit form
+  form.addEventListener("submit", updateCount);
 });
